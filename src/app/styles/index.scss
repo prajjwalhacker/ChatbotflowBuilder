@@ -1,0 +1,66 @@
+.react-flow-header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    background-color: white;
+    border-bottom: 2px solid grey;
+    .save-button {
+        background-color: white;
+        color: blue;
+        padding: 6px;
+        cursor: pointer;
+        border: 1px solid darkblue;
+    }
+}
+
+    .react-flow-main {
+        display: flex;
+        height: calc(100vh - 51px);
+        width: 100%;
+        .react-flow-main-left {
+            width: 75%;
+            border-right: 1px solid grey;
+            height: 100%;
+        }
+        .react-flow-main-right {
+            width: 25%;
+            background-color: white;
+            height: 100%;
+            .message-container {
+                width: 200px;
+                padding: 10px;
+                word-break: break-all;
+                color: black;
+                border: 1px solid black;
+            }
+        }
+    }
+
+    .custom-node {
+        width: 200px;
+        display: flex;
+        height: 70px;
+        flex-direction: column;
+        border: 1px solid grey;
+        border-radius: 5%;
+        .node-header {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px;
+            padding-inline: 10px;
+            color: black;
+            font-size: 12px;
+            border-bottom: 1px solid grey;
+            background-color: lightblue;
+            border-top-left-radius: 5%;
+            border-top-right-radius: 5%;
+        }
+        .node-body {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            font-size: 12px;
+            color: black;
+            padding-inline: 10px;
+        }
+    }

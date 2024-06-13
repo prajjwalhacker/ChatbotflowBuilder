@@ -9,8 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hello-pangea/dnd": "^16.6.0",
+    "lodash": "^4.17.21",
+    "next": "14.2.3",
     "react": "^18",
+    "react-beautiful-dnd": "^13.1.1",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^18",
-    "next": "14.2.3"
+    "react-toastify": "^10.0.5",
+    "reactflow": "^11.11.3",
+    "sass": "^1.77.4"
   }
 }
