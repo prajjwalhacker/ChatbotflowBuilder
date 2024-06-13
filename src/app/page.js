@@ -63,9 +63,16 @@ const initialEdges = [];
 export default function App() {
 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  ///// node state which is array of nodes representing node 
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+
+  /// on clicking the node selectedNodeId will get updated.
   const [selectedNodeId, setSelectedNodeId] = useState('');
+
+
+  /////on selecting the node message state will update
   const [message, setMessage] = useState('');
 
  
@@ -74,7 +81,9 @@ export default function App() {
     [setEdges],
   );
 
-  
+
+
+  /////// after dragging the message from side pandel 
   const handleDragEnd = (result) => {
       
        setNodes([...nodes, 
@@ -116,10 +125,9 @@ export default function App() {
       setSelectedNodeId(null)
   }
 
-  const onError  = () => {
-     toast("Cannot save flow");
-  }
 
+
+  ////// for checking whether more than two nodes are present isolated or not.
   const handleClick2 = () => {
      const nodemap = {};
 
@@ -141,7 +149,7 @@ export default function App() {
  
   return (
      <DragDropContext onDragEnd={handleDragEnd}>
-        <Header buttonText='Save Changes' handleClick={!selectedNodeId ? handleClick2 : handleClick} onError={onError}/>
+        <Header buttonText='Save Changes' handleClick={!selectedNodeId ? handleClick2 : handleClick}/>
             <div className='react-flow-main'>
             <Droppable droppableId='droppable-1'>
             {
