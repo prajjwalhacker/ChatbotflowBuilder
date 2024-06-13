@@ -21,8 +21,10 @@ const nodeTypes = [{ label: 'Message' }];
 // Define your custom node component
 const CustomNode = ({ data }) => {
   
+
+
   return (
-    <div className='custom-node'>
+    <div className='custom-node' onClick={() => { alert("fd") }}>
       <div className='node-header'>
          Send Message
       </div>
@@ -51,7 +53,7 @@ const initialNodes = [
     id: '1',
     position: { x: 250, y: 0 },
     data: { label: 'Text message 1' },
-    type: "customNode"
+    type: "messageNode"
   },
 ];
 
@@ -66,21 +68,19 @@ export default function App() {
   const [selectedNodeId, setSelectedNodeId] = useState('');
   const [message, setMessage] = useState('');
 
-  const onNodeClick = (node) => {
-      console.log(node, "node")
-      alert("adfsdfs")
-  }
  
   const onConnect = useCallback(
     (params) => setEdges((eds) => addEdge(params, eds)),
     [setEdges],
   );
+
+  
   const handleDragEnd = (result) => {
       
        setNodes([...nodes, 
         {
           id: String(nodes?.length + 1),
-          type: 'customNode', // Type should match the custom node type
+          type: 'messageNode', // Type should match the custom node type
           position: { x: mousePosition.x, y: mousePosition.y },
           data: { label: `Text message ${nodes?.length + 1}` },
         },
@@ -120,9 +120,6 @@ export default function App() {
      toast("Cannot save flow");
   }
 
-  console.log(edges, "edges")
-  console.log(nodes, "nodes")
-
   const handleClick2 = () => {
      const nodemap = {};
 
@@ -137,7 +134,7 @@ export default function App() {
        }
      })
      if (count > 1) {
-       toast.error('Cannot save changes');
+       toast.error('Cannot save flow');
        return;
      }
   }
@@ -159,9 +156,6 @@ export default function App() {
                   onPaneClick={() => { setSelectedNodeId(null); }}
                   onNodeClick={(data) => { console.log(data.target.getAttribute('data-id'), "data")
                      setSelectedNodeId(data.target.getAttribute('data-id'));
-                  }}
-                  onElementClick={() => {
-                     alert("sdfds")
                   }}
                   onConnect={onConnect}
                    style={{ backgroundColor: '#ffffff' }}
